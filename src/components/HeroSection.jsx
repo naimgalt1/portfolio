@@ -2,8 +2,11 @@ import React, { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { content } from "../i18n";
-const Scene3D = lazy(() => import("./Scene3D"));
-
+const Scene3D = lazy(() =>
+  new Promise((resolve) =>
+    setTimeout(() => resolve(import("./Scene3D")), 1000)
+  )
+);
 export default function HeroSection({ lang }) {
   const t = content.hero[lang];
 
