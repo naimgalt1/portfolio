@@ -123,4 +123,16 @@ export default function HeroSection({ lang }) {
         <div className="mt-10 flex items-end justify-between">
           <button
             onClick={() => document.getElementById("sobre-mi")?.scrollIntoView({ behavior: "smooth" })}
-            className="flex items-center
+            className="flex items-center gap-2 font-mono text-[0.7rem] tracking-[0.22em] uppercase hover:gap-3 transition-all"
+            data-testid="scroll-down-button"
+          >
+            <ArrowDown size={14} /> Scroll
+          </button>
+          <div className="font-mono text-[0.7rem] tracking-[0.18em] uppercase opacity-60">
+            v.01 · 2026
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
