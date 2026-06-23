@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts are preloaded from public/index.html for non-blocking load */
+
+:root {
+  --bg: #FFFFFF;
+  --bg-secondary: #F3F4F6;
+  --ink: #0A0A0A;
+  --muted: #4B5563;
+  --cyan: #00E5FF;
+  --lime: #B6FF3C;
+  --blue: #007AFF;
+}
+
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--cyan); color: var(--ink); }
+
+.font-display { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.04em; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+.font-body { font-family: 'Outfit', sans-serif; }
+
+/* ===== Layout helpers ===== */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(10,10,10,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10,10,10,0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.grid-bg-dark {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.noise::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+}
+
+/* ===== Module stack (sticky parallax) =====
+   Sticky stacking is only enabled on large screens.
+   On mobile/tablet sections flow naturally so long content (form, footer)
+   is never clipped by the next stacking module.
+   NOTE: do NOT set background here — each section owns its own bg color. */
+.module-stack { position: relative; }
+.module {
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .module {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+  }
+}
+
+/* ===== Brutalist primitives ===== */
+.b-border { border: 1.5px solid var(--ink); }
+.b-border-2 { border: 2px solid var(--ink); }
+.b-border-3 { border: 3px solid var(--ink); }
+
+.b-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--ink); color: #fff;
+  padding: 0.9rem 1.6rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  border: 2px solid var(--ink);
+  transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+  cursor: pointer;
+  border-radius: 0;
+}
+.b-btn:hover {
+  background: var(--cyan);
+  color: var(--ink);
+  transform: translate(-2px,-2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.b-btn.ghost { background: transparent; color: var(--ink); }
+.b-btn.ghost:hover { background: var(--ink); color: #fff; box-shadow: 6px 6px 0 var(--cyan); }
+.b-btn.invert { background: #fff; color: var(--ink); border-color: #fff; }
+.b-btn.invert:hover { background: var(--cyan); color: var(--ink); box-shadow: 6px 6px 0 #fff; }
+
+.b-card {
+  border: 1.5px solid var(--ink);
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.b-card:hover {
+  transform: translate(-3px,-3px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.b-card .aura {
+  position: absolute; inset: auto -40% -40% auto;
+  width: 70%; aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(0,229,255,0.55), transparent 60%);
+  opacity: 0; transition: opacity .35s ease;
+  pointer-events: none;
+}
+.b-card:hover .aura { opacity: 1; }
+
+.glass {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(10,10,10,0.12);
+}
+.glass-dark {
+  background: rgba(10,10,10,0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* ===== Outline / kinetic text ===== */
+.outline-text {
+  -webkit-text-stroke: 1.5px var(--ink);
+  color: transparent;
+  font-family: 'Archivo Black', sans-serif;
+  letter-spacing: -0.04em;
+}
+.outline-text-light {
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.9);
+  color: transparent;
+  font-family: 'Archivo Black', sans-serif;
+  letter-spacing: -0.04em;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex; width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+/* Float */
+@keyframes floaty {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.floaty { animation: floaty 6s ease-in-out infinite; }
+
+/* Blinking cursor */
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+.blink { animation: blink 1s steps(2, end) infinite; }
+
+/* Inputs */
+.b-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  padding: 0.9rem 0.25rem;
+  outline: none;
+  border-radius: 0;
+}
+.b-input::placeholder { color: rgba(255,255,255,0.45); }
+.b-input:focus { border-bottom-color: var(--cyan); box-shadow: 0 4px 0 -2px rgba(0,229,255,0.5); }
+
+/* utility */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Section tag */
+.section-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.25em;
+  border: 1.5px solid currentColor; padding: 0.35rem 0.7rem;
+}
+
+/* Number badge */
+.num-badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .grid-bg, .grid-bg-dark { background-size: 48px 48px; }
+}
