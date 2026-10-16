@@ -2,11 +2,12 @@ import React, { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { content } from "../i18n";
 import ParallaxText from "./ParallaxText";
+import MagneticChips from "./MagneticChips";
 const Scene3D = lazy(() => import("./Scene3D"));
 
 export default function SkillsSection({ lang }) {
   const t = content.skills[lang];
-  const marqueeText = (t.marquee + t.marquee + t.marquee).trim();
+  const techItems = t.marquee.split("·").map((x) => x.trim()).filter(Boolean);
 
   return (
     <section
@@ -24,16 +25,9 @@ export default function SkillsSection({ lang }) {
         </Suspense>
       </div>
 
-      {/* Kinetic outline marquee BG — centered on mobile/tablet, slides down on desktop to fill bottom */}
-      <div className="absolute inset-y-0 left-0 right-0 flex flex-col justify-center lg:justify-end lg:pb-24 pointer-events-none select-none opacity-40">
-        <div className="marquee-track">
-          <span className="outline-text-light text-[18vw] leading-none whitespace-nowrap pr-12">
-            {marqueeText}
-          </span>
-          <span className="outline-text-light text-[18vw] leading-none whitespace-nowrap pr-12">
-            {marqueeText}
-          </span>
-        </div>
+      {/* Decorative tech chips, pulled toward the cursor — centered on mobile, bottom band on desktop */}
+      <div className="absolute inset-x-0 top-[62%] lg:top-auto lg:bottom-24 -translate-y-1/2 lg:translate-y-0 pointer-events-none select-none opacity-70 z-0">
+        <MagneticChips items={techItems} />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 lg:py-28 lg:min-h-screen flex flex-col">
