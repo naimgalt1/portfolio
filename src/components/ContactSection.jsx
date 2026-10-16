@@ -49,9 +49,9 @@ export default function ContactSection({ lang }) {
       <div className="absolute inset-0 grid-bg-dark pointer-events-none"></div>
 
       {/* glow */}
-      <div className="absolute top-24 -right-40 w-[480px] h-[480px] rounded-full pointer-events-none"
+      <div className="absolute top-24 -right-40 w-[480px] h-[480px] pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(0,229,255,0.25), transparent 60%)" }} />
-      <div className="absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full pointer-events-none"
+      <div className="absolute -bottom-32 -left-32 w-[420px] h-[420px] pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(182,255,60,0.18), transparent 60%)" }} />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 lg:py-28 lg:min-h-screen flex flex-col">
@@ -170,7 +170,7 @@ export default function ContactSection({ lang }) {
                 STATUS
               </div>
               <div className="flex items-center gap-2">
-                <span className="inline-block w-2 h-2 bg-[#B6FF3C] rounded-full animate-pulse"></span>
+                <span className="inline-block w-2 h-2 bg-[#B6FF3C] animate-pulse"></span>
                 <span className="font-body text-base">{content.hero[lang].location}</span>
               </div>
             </div>
