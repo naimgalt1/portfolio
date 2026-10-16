@@ -85,10 +85,6 @@ export default function AboutSection({ lang }) {
                 alt="Naim Galet portrait"
                 className="w-full h-full object-cover grayscale contrast-110"
               />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[0.65rem] tracking-[0.2em] uppercase text-white mix-blend-difference">
-                <span>NGN_001.RAW</span>
-                <span>● REC</span>
-              </div>
             </motion.div>
 
             {/* Stats */}

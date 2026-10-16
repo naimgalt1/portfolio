@@ -4,11 +4,11 @@ import { ArrowUpRight } from "lucide-react";
 import { content } from "../i18n";
 import ParallaxText from "./ParallaxText";
 
-const COVERS = [
-  "https://images.unsplash.com/photo-1745910020846-3d4d0088d24d?crop=entropy&cs=srgb&fm=jpg&w=940&q=85",
-  "https://images.unsplash.com/photo-1526887593587-a307ea5d46b4?crop=entropy&cs=srgb&fm=jpg&w=940&q=85",
-  "https://images.pexels.com/photos/14016664/pexels-photo-14016664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-];
+const COVERS = {
+  "01": "/projects/raiz.png",
+  "02": "/projects/calma.png",
+  "03": "/projects/norte.png",
+};
 
 export default function ProjectsSection({ lang }) {
   const t = content.projects[lang];
@@ -65,7 +65,7 @@ export default function ProjectsSection({ lang }) {
             >
               <div className="relative aspect-[5/4] overflow-hidden border-b border-black bg-[#F3F4F6]">
                 <img
-                  src={COVERS[i % COVERS.length]}
+                  src={COVERS[p.n]}
                   alt={p.name}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.04]"
                 />
@@ -86,12 +86,15 @@ export default function ProjectsSection({ lang }) {
               </div>
 
               <div className="p-5 relative">
-                <div className="aura" />
                 <div className="font-mono text-[0.65rem] tracking-[0.22em] uppercase opacity-60">
                   {p.type}
                 </div>
                 <h3 className="font-display text-2xl sm:text-3xl mt-1">{p.name}</h3>
                 <p className="mt-2 text-sm text-[#0A0A0A]/75 leading-relaxed">{p.desc}</p>
+                <p className="mt-3 text-xs text-[#0A0A0A]/60 leading-relaxed">
+                  <span className="font-mono uppercase tracking-[0.18em] mr-1">{t.decisionLabel}:</span>
+                  {p.decision}
+                </p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {p.stack.map((s) => (
                     <span

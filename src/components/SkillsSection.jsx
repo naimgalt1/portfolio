@@ -1,9 +1,8 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { content } from "../i18n";
 import ParallaxText from "./ParallaxText";
 import MagneticChips from "./MagneticChips";
-const Scene3D = lazy(() => import("./Scene3D"));
 
 export default function SkillsSection({ lang }) {
   const t = content.skills[lang];
@@ -17,13 +16,6 @@ export default function SkillsSection({ lang }) {
       data-testid="section-habilidades"
     >
       <div className="absolute inset-0 grid-bg-dark pointer-events-none"></div>
-
-      {/* 3D cube accent — desktop only, fully inside viewport, larger room */}
-      <div className="hidden lg:block absolute right-6 top-24 w-[460px] h-[460px] xl:w-[540px] xl:h-[540px] pointer-events-none">
-        <Suspense fallback={null}>
-          <Scene3D shape="cube" color="#00E5FF" scale={1.3} className="w-full h-full" cameraZ={5.2} />
-        </Suspense>
-      </div>
 
       {/* Decorative tech chips, pulled toward the cursor — centered on mobile, bottom band on desktop */}
       <div className="absolute inset-x-0 top-[62%] lg:top-auto lg:bottom-24 -translate-y-1/2 lg:translate-y-0 pointer-events-none select-none opacity-70 z-0">
