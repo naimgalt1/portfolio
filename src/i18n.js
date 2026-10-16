@@ -78,6 +78,8 @@ export const content = {
           type: "Sistema de diseño",
           desc: "E-commerce de cosmeticos y bienestar",
           stack: ["React", "Tailwind", "Storybook"],
+          demo: "https://naim-raiz.vercel.app",
+          repo: "https://github.com/naimgalt1/raiz",
         },
         {
           n: "02",
@@ -85,6 +87,8 @@ export const content = {
           type: "Dashboard 3D",
           desc: "Pagina de reservas y presentación para estudio de yoga.",
           stack: ["React", "Three.js", "Framer"],
+          demo: "https://naim-calma.vercel.app",
+          repo: "https://github.com/naimgalt1/calma",
         },
         {
           n: "03",
@@ -92,9 +96,13 @@ export const content = {
           type: "Landing experimental",
           desc: "Landing para agencía de marketing.",
           stack: ["React", "R3F", "GSAP"],
+          demo: "https://naim-norte.vercel.app",
+          repo: "https://github.com/naimgalt1/norte",
         },
       ],
       cta: "Ver más",
+      demoLabel: "Ver demo",
+      codeLabel: "Código",
     },
     en: {
       tag: "// 02 — Selected projects",
@@ -106,6 +114,8 @@ export const content = {
           type: "Design system",
           desc: "E-commerce for cosmetics and wellness.",
           stack: ["React", "Tailwind", "Storybook"],
+          demo: "https://naim-raiz.vercel.app",
+          repo: "https://github.com/naimgalt1/raiz",
         },
         {
           n: "02",
@@ -113,6 +123,8 @@ export const content = {
           type: "3D Dashboard",
           desc: "Pagina de reservas y presentación para estudio de yoga.",
           stack: ["React", "Three.js", "Framer"],
+          demo: "https://naim-calma.vercel.app",
+          repo: "https://github.com/naimgalt1/calma",
         },
         {
           n: "03",
@@ -120,9 +132,13 @@ export const content = {
           type: "Experimental landing",
           desc: "Landing for marketing agency.",
           stack: ["React", "R3F", "GSAP"],
+          demo: "https://naim-norte.vercel.app",
+          repo: "https://github.com/naimgalt1/norte",
         },
       ],
       cta: "See more",
+      demoLabel: "Live demo",
+      codeLabel: "Code",
     },
   },
   skills: {

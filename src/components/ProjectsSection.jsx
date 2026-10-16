@@ -94,6 +94,26 @@ export default function ProjectsSection({ lang }) {
                     </span>
                   ))}
                 </div>
+                <div className="mt-5 flex flex-wrap gap-5 font-mono text-[0.65rem] tracking-[0.18em] uppercase">
+                  <a
+                    href={p.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-[#B6FF3C] transition-colors"
+                    data-testid={`project-demo-${p.n}`}
+                  >
+                    {t.demoLabel} ↗
+                  </a>
+                  <a
+                    href={p.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-[#B6FF3C] transition-colors"
+                    data-testid={`project-code-${p.n}`}
+                  >
+                    {t.codeLabel} ↗
+                  </a>
+                </div>
               </div>
             </motion.article>
           ))}
