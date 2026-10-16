@@ -72,9 +72,17 @@ export default function ProjectsSection({ lang }) {
                 <div className="absolute top-3 left-3 font-mono text-[0.65rem] tracking-[0.22em] uppercase bg-black text-white px-2 py-1">
                   {p.n}
                 </div>
-                <div className="absolute top-3 right-3 size-9 grid place-items-center bg-white border border-black opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-2 transition-all">
+                <a
+                  href={p.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${t.demoLabel}: ${p.name}`}
+                  title={`${t.demoLabel}: ${p.name}`}
+                  data-testid={`project-arrow-${p.n}`}
+                  className="absolute top-3 right-3 size-9 grid place-items-center bg-white border border-black opacity-100 md:opacity-0 md:group-hover:opacity-100 md:pointer-events-none md:group-hover:pointer-events-auto focus-visible:opacity-100 translate-x-0 md:translate-x-2 md:group-hover:translate-x-0 transition-all hover:bg-[#B6FF3C] hover:shadow-[0_0_12px_rgba(182,255,60,0.6)]"
+                >
                   <ArrowUpRight size={16} />
-                </div>
+                </a>
               </div>
 
               <div className="p-5 relative">
