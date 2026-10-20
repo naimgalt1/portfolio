@@ -81,7 +81,7 @@ export default function AboutSection({ lang }) {
               data-testid="about-portrait"
             >
               <img
-                src="https://customer-assets.emergentagent.com/job_aero-parallax-port/artifacts/nnyaqtup_Gemini_Generated_Image_9sxzst9sxzst9sxz.jpg"
+                src="/about/portrait.jpg"
                 alt="Naim Galet portrait"
                 className="w-full h-full object-cover grayscale contrast-110"
               />
