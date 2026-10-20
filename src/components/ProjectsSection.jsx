@@ -5,9 +5,9 @@ import { content } from "../i18n";
 import ParallaxText from "./ParallaxText";
 
 const COVERS = {
-  "01": "/projects/raiz.png",
-  "02": "/projects/calma.png",
-  "03": "/projects/norte.png",
+  "01": "/projects/raiz.jpg",
+  "02": "/projects/calma.jpg",
+  "03": "/projects/norte.jpg",
 };
 
 export default function ProjectsSection({ lang }) {
