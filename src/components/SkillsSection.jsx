@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { content } from "../i18n";
 import ParallaxText from "./ParallaxText";
 import MagneticChips from "./MagneticChips";
-import BalloonLabButton from "./BalloonLab";
+import FaceCreator from "./FaceCreator";
 
 export default function SkillsSection({ lang }) {
   const t = content.skills[lang];
@@ -48,11 +48,8 @@ export default function SkillsSection({ lang }) {
               </motion.h2>
             </ParallaxText>
           </div>
-          <div className="flex items-center gap-4 flex-wrap">
-            <BalloonLabButton lang={lang} />
-            <div className="font-mono text-[0.7rem] tracking-[0.22em] uppercase text-white/50">
-              CORE / 2026
-            </div>
+          <div className="font-mono text-[0.7rem] tracking-[0.22em] uppercase text-white/50">
+            CORE / 2026
           </div>
         </div>
 
@@ -84,6 +81,9 @@ export default function SkillsSection({ lang }) {
             </div>
           ))}
         </motion.div>
+        <div className="mt-8">
+          <FaceCreator lang={lang} />
+        </div>
       </div>
     </section>
   );
